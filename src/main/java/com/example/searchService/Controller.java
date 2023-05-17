@@ -1,8 +1,6 @@
 package com.example.searchService;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -11,6 +9,15 @@ public class Controller {
 
     private Repository repo;
 
+    public Controller(Repository repo) {
+        this.repo = repo;
+    }
+
+    @PostMapping("/add")
+    public void add(@RequestBody Entity entity){
+        repo.save(entity);
+    }
+
     @GetMapping("/findAll")
     public Iterable<Entity> findAll(){
         return repo.findAll();
@@ -18,7 +25,7 @@ public class Controller {
 
     @GetMapping("/findById/{id}")
     public Entity findById(@PathVariable String id){
-        return repo.findById(id);
+        return repo.findById(id).orElseThrow();
     }
 
     @GetMapping("/findByName/{name}")

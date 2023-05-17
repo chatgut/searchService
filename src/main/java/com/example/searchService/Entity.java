@@ -9,7 +9,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 
 @Getter
 @Setter
-@Document(indexName = "chat")
+@Document(indexName = "chatgut")
 public class Entity {
 
     @Id

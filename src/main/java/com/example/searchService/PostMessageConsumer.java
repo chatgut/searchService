@@ -4,11 +4,11 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MessageConsumer {
+public class PostMessageConsumer {
 
     private Repository repo;
 
-    public MessageConsumer(Repository repo) {
+    public PostMessageConsumer(Repository repo) {
         this.repo = repo;
     }
 

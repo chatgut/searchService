@@ -1,6 +1,8 @@
 package com.example.searchService;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class Controller {
 
     @GetMapping("/findById/{id}")
     public Entity findById(@PathVariable String id){
-        return repo.findById(id).orElseThrow();
+        return repo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/findByName/{name}")

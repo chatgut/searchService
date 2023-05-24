@@ -7,20 +7,16 @@ The Search Microservice exposes the following REST API endpoints:
 
 - **POST** */search/add*
 
-Add a new chat entity to be indexed for searching.
+Add a new chat entity to be indexed for searching. (This is just for testing purposes and does not publish any message to the RabbitMQ queue)
 
 - **GET** */search/findAll*
 
-Retrieve all indexed chat entities.
+Retrieve all indexed chat entities from the RabbitMQ queue.
 
 - **GET** */search/findById/{id}*
 
-Retrieve a chat entity by its ID.
-
-- **GET** */search/findByName/{name}*
-
-Search for chat entities by user name.
+Retrieve a chat entity by its ID from the RabbitMQ queue.
 
 - **GET** */search/findText/{text}*
 
-Search for chat entities containing specific text.
+Search for chat entities containing specific text from the RabbitMQ queue.

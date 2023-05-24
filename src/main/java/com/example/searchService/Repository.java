@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface Repository extends ElasticsearchRepository<Entity, String> {
 
-    List<Entity> findByUserName(String name);
-
-    List<Entity> findByChatTextContaining(String text);
+    List<Entity> findByMessageContaining(String text);
 
 }

@@ -31,14 +31,9 @@ public class Controller {
         return repo.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/findByName/{name}")
-    public List<Entity> findByName(@PathVariable String name){
-        return repo.findByUserName(name);
-    }
-
     @GetMapping("/findText/{text}")
     public List<Entity> findByText(@PathVariable String text){
-        return repo.findByChatTextContaining(text);
+        return repo.findByMessageContaining(text);
     }
 
 }

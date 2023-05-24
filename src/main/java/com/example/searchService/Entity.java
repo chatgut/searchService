@@ -16,9 +16,6 @@ public class Entity {
     private String id;
 
     @Field(type = FieldType.Nested, includeInParent = true)
-    private String userName;
-
-    @Field(type = FieldType.Nested, includeInParent = true)
-    private String chatText;
+    private String message;
 
 }

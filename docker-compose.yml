@@ -49,12 +49,13 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8006:8006"
+      - "8006:8080"
     depends_on:
       - elasticsearch
       - rabbitMQ
     environment:
-      - SPRING_RABBITMQ_HOST=rabbitMQ
+      - SPRING_RABBITMQ_HOST=QueueRabbitMQ
+
 
 volumes:
   elastic_data:
